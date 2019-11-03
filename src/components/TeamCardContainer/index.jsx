@@ -39,12 +39,14 @@ const TeamCardContainer = props => {
       if (props.allTeams) {
         containerClassName = "all-team-content";
         return <TeamCard key={el.id} data={el} />;
-      } else {
-        containerClassName = "content";
-        return <TeamCard key={el.id} data={el} />;
       }
+      return <TeamCard key={el.id} data={el} />;
     });
-    return <div className={containerClassName}>{teamCard}</div>;
+    if (props.allTeams) {
+      return <div className={containerClassName}>{teamCard}</div>;
+    } else {
+      return <React.Fragment>{teamCard}</React.Fragment>;
+    }
   } else if (fetchError) {
     return "Error. Try to reload this page.";
   } else {

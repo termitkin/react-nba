@@ -4,15 +4,10 @@
   border-bottom: 2px solid #c3c4c6;
   padding: 10px;
 }
-.team-card__size_small {
-  min-width: 170px;
-}
-
 .team-card__logo {
   width: 150px;
   height: 150px;
 }
-
 .team-card__text {
   font-size: 13px;
   color: #333;
