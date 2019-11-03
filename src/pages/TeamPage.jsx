@@ -5,7 +5,6 @@ import TeamCardContainer from "../components/TeamCardContainer";
 import GameCardContainer from "../components/GameCardContainer";
 
 const TeamPage = props => {
-  console.log("TEAMPAGE", props);
   return (
     <div className="wrapper">
       <Header />

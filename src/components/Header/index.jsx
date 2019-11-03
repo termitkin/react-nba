@@ -9,7 +9,7 @@ const Header = () => {
         <Link className="header__link" to="/">
           Home
         </Link>
-        <Link className="header__link" to="/allteams">
+        <Link className="header__link" to="/all-teams">
           All teams
         </Link>
       </Router>
