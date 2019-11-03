@@ -7,7 +7,7 @@ const TeamCard = props => {
       <img
         className="team-card__logo"
         src={require(`../../assets/teamIcons/${props.data.abbreviation}.svg`)}
-        alt={props.data.full_name}
+        alt={`${props.data.full_name} logo`}
       />
       <div className="team-card__text">
         <span className="team-card__text_bold">Name: </span>
