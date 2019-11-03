@@ -10,9 +10,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Tests
-        run: npm run test:nowatch
-
       - name: Build and Deploy
         uses: JamesIves/github-pages-deploy-action@master
         env:
