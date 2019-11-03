@@ -4,7 +4,6 @@ import "./styles.css";
 const TeamCard = props => {
   return (
     <article className="team-card">
-      <h1 className="heading">Info about {props.data.full_name}</h1>
       <img
         className="team-card__logo"
         src={require(`../../assets/teamIcons/${props.data.abbreviation}.svg`)}

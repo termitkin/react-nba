@@ -6,7 +6,6 @@ import currentYearMonthDays from "../../utils/currentYearMonthDays";
 
 const GameCardContainer = props => {
   let [gameCards, fetchgameCards] = useState([]);
-  console.log(gameCards, props);
   useEffect(() => {
     const API_URL = "https://www.balldontlie.io/api/v1";
     let currentUrl = "";
@@ -36,12 +35,7 @@ const GameCardContainer = props => {
     return <GameCard key={el.id} data={el} />;
   });
 
-  return (
-    <div className="content">
-      <h2>555awdawd awd awd </h2>
-      {gameCards}
-    </div>
-  );
+  return <div className="content">{gameCards}</div>;
 };
 
 export default GameCardContainer;
