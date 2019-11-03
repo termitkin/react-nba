@@ -1,0 +1,18 @@
+.game-card-content {
+  display: grid;
+  grid-row-gap: 15px;
+  grid-column-gap: 15px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@media screen and (min-width: 850px) {
+  .game-card-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1050px) {
+  .game-card-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

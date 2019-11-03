@@ -1,13 +1,15 @@
 import React from "react";
 import Header from "../components/Header";
-import GameCardContainer from "../components/GameCardContainer";
+import TeamCardContainer from "../components/TeamCardContainer";
 
 const AllTeams = () => {
   return (
     <div className="wrapper">
       <Header />
-      <h1 className="heading">List of today NBA games</h1>
-      <GameCardContainer />
+      <section>
+        <h1 className="heading">List of all NBA teams</h1>
+        <TeamCardContainer allTeams={true} />
+      </section>
     </div>
   );
 };

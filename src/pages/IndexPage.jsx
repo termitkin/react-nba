@@ -6,7 +6,10 @@ const IndexPage = () => {
   return (
     <div className="wrapper">
       <Header />
-      <GameCardContainer />
+      <section>
+        <h1 className="heading">List of all today NBA games</h1>
+        <GameCardContainer />
+      </section>
     </div>
   );
 };

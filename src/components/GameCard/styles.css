@@ -4,9 +4,16 @@
   width: 100%;
   max-width: 475px;
   padding: 10px;
-  margin-bottom: 15px;
+  margin: 0 auto;
   transition: 0.25s border;
 }
+
+@media screen and (min-width: 850px) {
+  .game-card {
+    margin: 0;
+  }
+}
+
 .game-card_content-loading_true {
   display: flex;
   align-items: center;

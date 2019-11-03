@@ -3,9 +3,11 @@ import React, { useState, useEffect } from "react";
 import GameCard from "../GameCard";
 import currentDate from "../../utils/currentDate";
 import currentYearMonthDays from "../../utils/currentYearMonthDays";
+import "./styles.css";
 
 const GameCardContainer = props => {
   let [gameCards, fetchgameCards] = useState([]);
+  const [fetchError, fetchErrorHandle] = useState(false);
   useEffect(() => {
     const API_URL = "https://www.balldontlie.io/api/v1";
     let currentUrl = "";
@@ -27,7 +29,7 @@ const GameCardContainer = props => {
         fetchgameCards(el["data"]);
       })
       .catch(err => {
-        console.log(err);
+        fetchErrorHandle(err);
       });
   }, [props]);
 
@@ -35,7 +37,13 @@ const GameCardContainer = props => {
     return <GameCard key={el.id} data={el} />;
   });
 
-  return <div className="content">{gameCards}</div>;
+  if (gameCards.length !== 0) {
+    return <div className="game-card-content">{gameCards}</div>;
+  } else if (fetchError) {
+    return "Error. Try to reload this page.";
+  } else {
+    return "Loading...";
+  }
 };
 
 export default GameCardContainer;
