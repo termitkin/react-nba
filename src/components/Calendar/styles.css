@@ -2,7 +2,17 @@
   background-color: #fff;
   border-bottom: 2px solid #c3c4c6;
   transition: 0.25s border;
-  margin-left: 15px;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 630px) {
+  .DayPicker {
+    margin-top: 0;
+    margin-left: 15px;
+    margin-right: 0;
+  }
 }
 
 .DayPicker:hover {
