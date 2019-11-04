@@ -7,6 +7,7 @@ import "./styles.css";
 
 const GameCardContainer = props => {
   let [gameCards, fetchgameCards] = useState([]);
+  let [contentLoaded, contentLoadedUpdate] = useState(false);
   const [fetchError, fetchErrorHandle] = useState(false);
   useEffect(() => {
     const API_URL = "https://www.balldontlie.io/api/v1";
@@ -16,6 +17,8 @@ const GameCardContainer = props => {
       const start_date = currentYearMonthDays()[0];
       const end_date = currentYearMonthDays()[1];
       currentUrl = `${API_URL}/games?team_ids[]=${props.teamId.params.id}&start_date=${start_date}&end_date=${end_date}`;
+    } else if (props.selectedDay !== undefined) {
+      currentUrl = `${API_URL}/games?start_date=${props.selectedDay}&end_date=${props.selectedDay}`;
     } else {
       currentUrl = `${API_URL}/games?start_date=${currentDate()}&end_date=${currentDate()}`;
     }
@@ -27,6 +30,7 @@ const GameCardContainer = props => {
           return new Date(a["date"]) - new Date(b["date"]);
         });
         fetchgameCards(el["data"]);
+        contentLoadedUpdate(true);
       })
       .catch(err => {
         fetchErrorHandle(err);
@@ -37,8 +41,15 @@ const GameCardContainer = props => {
     return <GameCard key={el.id} data={el} />;
   });
 
+  if (gameCards.length === 0 && contentLoaded === true) {
+    return "There are no games on this day";
+  }
   if (gameCards.length !== 0) {
-    return <div className="game-card-content">{gameCards}</div>;
+    if (props.teamId === undefined) {
+      return <div className="game-card-content_index-page">{gameCards}</div>;
+    } else {
+      return <div className="game-card-content">{gameCards}</div>;
+    }
   } else if (fetchError) {
     return "Error. Try to reload this page.";
   } else {

@@ -5,8 +5,20 @@
   grid-template-columns: repeat(1, 1fr);
 }
 
+.game-card-content_index-page {
+  max-width: 605px;
+  width: 100%;
+  display: grid;
+  grid-row-gap: 15px;
+  grid-column-gap: 15px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
 @media screen and (min-width: 850px) {
   .game-card-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .game-card-content_index-page {
     grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -110,3 +110,16 @@ code {
 .link_color_white {
   color: #fff;
 }
+
+.cards-and-calendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+@media screen and (min-width: 630px) {
+  .cards-and-calendar {
+    flex-direction: row;
+  }
+}

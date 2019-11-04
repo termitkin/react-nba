@@ -20,6 +20,10 @@ const AppRouter = () => {
             render={props => <IndexPage params={{ ...props }} />}
           />
           <Route
+            path="/date=:date"
+            render={props => <IndexPage params={{ ...props }} />}
+          />
+          <Route
             path="/team=:id"
             render={props => <TeamPage params={{ ...props }} />}
           />

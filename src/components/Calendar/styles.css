@@ -1,0 +1,19 @@
+.DayPicker {
+  background-color: #fff;
+  border-bottom: 2px solid #c3c4c6;
+  transition: 0.25s border;
+  margin-left: 15px;
+}
+
+.DayPicker:hover {
+  border-bottom: 2px solid #1d428a;
+}
+
+.DayPicker-Day {
+  border-radius: 0% !important;
+  padding: 0.35em 0.5em 0.3em 0.5em !important;
+}
+
+.DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  background-color: #1d428a !important;
+}
