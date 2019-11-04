@@ -6,7 +6,6 @@
 }
 
 .game-card-content_index-page {
-  max-width: 605px;
   width: 100%;
   display: grid;
   grid-row-gap: 15px;
