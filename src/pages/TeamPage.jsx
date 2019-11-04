@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -35,3 +36,9 @@ export default connect(
   mapStateToProps,
   null
 )(TeamPage);
+
+TeamPage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  params: PropTypes.object.isRequired,
+  team: PropTypes.object.isRequired
+};

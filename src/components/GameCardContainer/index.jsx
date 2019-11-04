@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import GameCard from "../GameCard";
 import currentDate from "../../utils/currentDate";
 import currentYearMonthDays from "../../utils/currentYearMonthDays";
@@ -47,3 +47,7 @@ const GameCardContainer = props => {
 };
 
 export default GameCardContainer;
+
+GameCardContainer.propTypes = {
+  teamId: PropTypes.object
+};

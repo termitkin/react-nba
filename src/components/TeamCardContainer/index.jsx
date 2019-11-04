@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import TeamCard from "../TeamCard";
 import { connect } from "react-redux";
 import { addTeamData } from "../../store/team/actions";
@@ -62,3 +63,9 @@ export default connect(
   null,
   mapDispatchToProps
 )(TeamCardContainer);
+
+TeamCardContainer.propTypes = {
+  addTeamData: PropTypes.func.isRequired,
+  teamId: PropTypes.string,
+  allTeams: PropTypes.bool
+};

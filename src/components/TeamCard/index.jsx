@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./styles.css";
 
 const TeamCard = props => {
@@ -38,3 +39,15 @@ const TeamCard = props => {
 };
 
 export default TeamCard;
+
+TeamCard.propTypes = {
+  data: PropTypes.exact({
+    abbreviation: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    conference: PropTypes.string.isRequired,
+    division: PropTypes.string.isRequired,
+    full_name: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired
+  })
+};

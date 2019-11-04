@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import convertDate from "../../utils/gameCardDateConverter";
 import { Link, HashRouter as Router } from "react-router-dom";
 import "./styles.css";
@@ -62,3 +63,19 @@ const GameCard = props => {
 };
 
 export default GameCard;
+
+GameCard.propTypes = {
+  data: PropTypes.exact({
+    date: PropTypes.string.isRequired,
+    home_team: PropTypes.object.isRequired,
+    home_team_score: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+    period: PropTypes.number.isRequired,
+    postseason: PropTypes.bool.isRequired,
+    season: PropTypes.number.isRequired,
+    status: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
+    visitor_team: PropTypes.object.isRequired,
+    visitor_team_score: PropTypes.number.isRequired
+  })
+};
