@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 import GameCard from "../GameCard";
 import currentDate from "../../utils/currentDate";
 import currentYearMonthDays from "../../utils/currentYearMonthDays";
@@ -23,13 +24,13 @@ const GameCardContainer = props => {
       currentUrl = `${API_URL}/games?start_date=${currentDate()}&end_date=${currentDate()}`;
     }
 
-    fetch(currentUrl)
-      .then(el => el.json())
+    axios
+      .get(currentUrl)
       .then(el => {
-        el["data"].sort((a, b) => {
+        el["data"]["data"].sort((a, b) => {
           return new Date(a["date"]) - new Date(b["date"]);
         });
-        fetchgameCards(el["data"]);
+        fetchgameCards(el["data"]["data"]);
         contentLoadedUpdate(true);
       })
       .catch(err => {
@@ -47,14 +48,12 @@ const GameCardContainer = props => {
   if (gameCards.length !== 0) {
     if (props.teamId === undefined) {
       return <div className="game-card-content_index-page">{gameCards}</div>;
-    } else {
-      return <div className="game-card-content">{gameCards}</div>;
     }
+    return <div className="game-card-content">{gameCards}</div>;
   } else if (fetchError) {
     return "Error. Try to reload this page.";
-  } else {
-    return "Loading...";
   }
+  return "Loading...";
 };
 
 export default GameCardContainer;

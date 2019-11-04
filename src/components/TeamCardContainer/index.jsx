@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 import TeamCard from "../TeamCard";
 import { connect } from "react-redux";
 import { addTeamData } from "../../store/team/actions";
@@ -19,13 +20,13 @@ const TeamCardContainer = props => {
   }
 
   useEffect(() => {
-    fetch(currentUrl)
-      .then(el => el.json())
+    axios
+      .get(currentUrl)
       .then(el => {
         if (props.allTeams) {
-          fetchTeamCard(el["data"]);
+          fetchTeamCard(el["data"]["data"]);
         } else {
-          fetchTeamCard([el]);
+          fetchTeamCard([el["data"]]);
           props.addTeamData(el);
         }
       })
@@ -45,14 +46,12 @@ const TeamCardContainer = props => {
     });
     if (props.allTeams) {
       return <div className={containerClassName}>{teamCard}</div>;
-    } else {
-      return <React.Fragment>{teamCard}</React.Fragment>;
     }
+    return <React.Fragment>{teamCard}</React.Fragment>;
   } else if (fetchError) {
     return "Error. Try to reload this page.";
-  } else {
-    return "Loading...";
   }
+  return "Loading...";
 };
 
 const mapDispatchToProps = {
