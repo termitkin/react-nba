@@ -17,10 +17,17 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "size": "npm run build && size-limit",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "size-limit": [
+    {
+      "limit": "2300 ms",
+      "path": "build/static/**/*.js"
+    }
+  ],
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -36,5 +43,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://termitkin.github.io/react-nba"
+  "homepage": "http://termitkin.github.io/react-nba",
+  "devDependencies": {
+    "@size-limit/preset-app": "^2.1.6"
+  }
 }
