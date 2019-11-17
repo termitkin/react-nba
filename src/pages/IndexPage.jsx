@@ -9,7 +9,10 @@ import currentDate from "../utils/currentDate";
 
 const IndexPage = props => {
   let headingText = "";
-  if (props.params.match.params.date !== undefined) {
+  if (
+    props.params.match.params.date !== undefined &&
+    props.params.match.params.date !== currentDate()
+  ) {
     headingText = `List of all ${currentDate(
       new Date(props.params.match.params.date)
     )} NBA games`;
@@ -38,10 +41,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(IndexPage);
+export default connect(mapStateToProps, null)(IndexPage);
 
 IndexPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
