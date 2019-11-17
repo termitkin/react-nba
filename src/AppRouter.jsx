@@ -15,12 +15,8 @@ const AppRouter = () => {
       <Router>
         <Switch>
           <Route
-            path="/"
+            path={["/", "/date=:date"]}
             exact
-            render={props => <IndexPage params={{ ...props }} />}
-          />
-          <Route
-            path="/date=:date"
             render={props => <IndexPage params={{ ...props }} />}
           />
           <Route
