@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { setSelectedDay } from "../store/calendar/actions";
 import Header from "../components/Header";
 import GameCardContainer from "../components/GameCardContainer";
 import Calendar from "../components/Calendar";
@@ -8,17 +9,26 @@ import Footer from "../components/Footer";
 import currentDate from "../utils/currentDate";
 
 const IndexPage = props => {
+  const dateFromUrl = props.params.match.params.date;
+
   let headingText = "";
-  if (
-    props.params.match.params.date !== undefined &&
-    props.params.match.params.date !== currentDate()
-  ) {
-    headingText = `List of all ${currentDate(
-      new Date(props.params.match.params.date)
-    )} NBA games`;
+  if (dateFromUrl !== undefined && dateFromUrl !== currentDate()) {
+    headingText = `List of all ${currentDate(new Date(dateFromUrl))} NBA games`;
   } else {
     headingText = "List of all today NBA games";
   }
+
+  let selectedDay = "";
+  if (props.params.match.path === "/") {
+    selectedDay = currentDate();
+  } else if (dateFromUrl !== undefined) {
+    selectedDay = dateFromUrl;
+  } else if (props.selectedDay !== undefined) {
+    selectedDay = props.selectedDay;
+  } else {
+    selectedDay = currentDate();
+  }
+  setSelectedDay(selectedDay);
 
   return (
     <div className="wrapper">
@@ -26,8 +36,8 @@ const IndexPage = props => {
       <section className="content">
         <h1 className="heading">{headingText}</h1>
         <div className="cards-and-calendar">
-          <GameCardContainer selectedDay={props.params.match.params.date} />
-          <Calendar />
+          <GameCardContainer selectedDay={selectedDay} />
+          <Calendar selectedDay={selectedDay} />
         </div>
       </section>
       <Footer />
@@ -41,10 +51,14 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, null)(IndexPage);
+const mapDispatchToProps = {
+  setSelectedDay
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);
 
 IndexPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   params: PropTypes.object.isRequired,
-  selectedDay: PropTypes.object
+  setSelectedDay: PropTypes.func.isRequired,
+  selectedDay: PropTypes.string
 };
