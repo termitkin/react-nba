@@ -1,6 +1,6 @@
 import { ACTION_SELECT_DAY } from "../../constants";
 
-export const selectDay = props => {
+export const setSelectedDay = props => {
   return {
     type: ACTION_SELECT_DAY,
     payload: props
