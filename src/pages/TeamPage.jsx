@@ -11,13 +11,22 @@ const TeamPage = props => {
     <div className="wrapper">
       <Header />
       <section className="content" style={{ marginBottom: "0" }}>
-        <h1 className="heading">Info about <span className="heading__team-name">{props.team.data && props.team.data.full_name}</span></h1>
+        <h1 className="heading">
+          Info about{" "}
+          <span className="heading__team-name">
+            {props.team.data && props.team.data.full_name}
+          </span>
+        </h1>
         <TeamCardContainer teamId={props.params.match.params.id} />
       </section>
 
       <section className="content">
         <h2 className="heading">
-          All <span className="heading__team-name">{props.team.data && props.team.data.full_name}</span> games in this month
+          All{" "}
+          <span className="heading__team-name">
+            {props.team.data && props.team.data.full_name}
+          </span>{" "}
+          games in this month
         </h2>
         <GameCardContainer teamId={props.params.match} />
       </section>
@@ -32,10 +41,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(TeamPage);
+export default connect(mapStateToProps, null)(TeamPage);
 
 TeamPage.propTypes = {
   dispatch: PropTypes.func.isRequired,

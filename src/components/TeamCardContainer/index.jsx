@@ -58,10 +58,7 @@ const mapDispatchToProps = {
   addTeamData
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(TeamCardContainer);
+export default connect(null, mapDispatchToProps)(TeamCardContainer);
 
 TeamCardContainer.propTypes = {
   addTeamData: PropTypes.func.isRequired,
