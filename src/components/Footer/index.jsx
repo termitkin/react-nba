@@ -3,7 +3,7 @@ import "./styles.css";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <footer className="footer">
       for NBA API thanks{" "}
       <a
         className="link link_color_white footer__link"
@@ -13,7 +13,7 @@ const Footer = () => {
       >
         Danny Park
       </a>
-    </div>
+    </footer>
   );
 };
 

@@ -4,7 +4,7 @@ import "./styles.css";
 
 const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <Router>
         <Link className="header__link" to="/">
           Home
@@ -13,7 +13,7 @@ const Header = () => {
           All teams
         </Link>
       </Router>
-    </div>
+    </header>
   );
 };
 

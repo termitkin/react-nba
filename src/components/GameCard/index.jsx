@@ -7,9 +7,9 @@ import "./styles.css";
 const GameCard = props => {
   return (
     <article className="game-card">
-      <div className="game-card__starts-time">
+      <p className="game-card__starts-time">
         Game starts in {convertDate(props.data.date)}
-      </div>
+      </p>
 
       <div className="game-card__teams">
         <div className="game-card__team">
@@ -28,7 +28,7 @@ const GameCard = props => {
           </Router>
 
           <img
-            className="team-logo game-card__team-logo"
+            className="game-card__team-logo"
             src={require(`../../assets/teamIcons/${props.data.visitor_team.abbreviation}.svg`)}
             alt={`${props.data.visitor_team.full_name} logo`}
           />
@@ -52,7 +52,7 @@ const GameCard = props => {
           </Router>
 
           <img
-            className="team-logo game-card__team-logo"
+            className="game-card__team-logo"
             src={require(`../../assets/teamIcons/${props.data.home_team.abbreviation}.svg`)}
             alt={`${props.data.home_team.full_name} logo`}
           />

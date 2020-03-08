@@ -10,30 +10,28 @@ const TeamCard = props => {
         src={require(`../../assets/teamIcons/${props.data.abbreviation}.svg`)}
         alt={`${props.data.full_name} logo`}
       />
-      <div className="team-card__text">
-        <span className="team-card__text_bold">Name: </span>
-        {props.data.name}
-      </div>
-      <div className="team-card__text">
-        <span className="team-card__text_bold">Full name: </span>
-        {props.data.full_name}
-      </div>
-      <div className="team-card__text">
-        <span className="team-card__text_bold">City: </span>
-        {props.data.city}
-      </div>
-      <div className="team-card__text">
-        <span className="team-card__text_bold">Abbreviation: </span>
-        {props.data.abbreviation}
-      </div>
-      <div className="team-card__text">
-        <span className="team-card__text_bold">Division: </span>
-        {props.data.division}
-      </div>
-      <div className="team-card__text">
-        <span className="team-card__text_bold">Conference: </span>
-        {props.data.conference}
-      </div>
+
+      <ul className="team-card__info-list">
+        <li className="team-card__info-list-elem">
+          <span className="team-card__text-accent">Name: </span>{props.data.name}
+        </li>
+        <li className="team-card__info-list-elem">
+          <span className="team-card__text-accent">Full name: </span>{props.data.full_name}
+        </li>
+        <li className="team-card__info-list-elem">
+          <span className="team-card__text-accent">City: </span>{props.data.city}
+        </li>
+        <li className="team-card__info-list-elem">
+          <span className="team-card__text-accent">Abbreviation: </span>{props.data.abbreviation}
+        </li>
+        <li className="team-card__info-list-elem">
+          <span className="team-card__text-accent">Division: </span>{props.data.division}
+        </li>
+        <li className="team-card__info-list-elem">
+          <span className="team-card__text-accent">Conference: </span>{props.data.conference}
+        </li>
+      </ul>
+
     </article>
   );
 };

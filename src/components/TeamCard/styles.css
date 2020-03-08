@@ -8,10 +8,10 @@
   width: 150px;
   height: 150px;
 }
-.team-card__text {
+.team-card__info-list-elem {
   font-size: 13px;
   color: #333;
 }
-.team-card__text_bold {
+.team-card__text-accent {
   font-weight: bold;
 }

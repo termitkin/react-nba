@@ -33,6 +33,7 @@
 .game-card__teams {
   display: flex;
   justify-content: space-around;
+  align-items: flex-start;
   background-color: #fff;
   margin-top: 10px;
 }
