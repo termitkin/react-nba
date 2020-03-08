@@ -5,14 +5,14 @@ import Footer from "../components/Footer";
 
 const AllTeams = () => {
   return (
-    <div className="wrapper">
+    <React.Fragment>
       <Header />
       <section className="content">
         <h1 className="heading">List of all NBA teams</h1>
         <TeamCardContainer allTeams={true} />
       </section>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 };
 

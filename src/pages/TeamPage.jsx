@@ -8,7 +8,7 @@ import GameCardContainer from "../components/GameCardContainer";
 
 const TeamPage = props => {
   return (
-    <div className="wrapper">
+    <React.Fragment>
       <Header />
       <section className="content" style={{ marginBottom: "0" }}>
         <h1 className="heading">
@@ -31,7 +31,7 @@ const TeamPage = props => {
         <GameCardContainer teamId={props.params.match} />
       </section>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 };
 

@@ -4,13 +4,13 @@ import Footer from "../components/Footer";
 
 const Page404 = () => {
   return (
-    <div className="wrapper">
+    <React.Fragment>
       <Header />
       <section className="content">
         <h1 className="heading">Error 404: Page not found</h1>
       </section>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 };
 

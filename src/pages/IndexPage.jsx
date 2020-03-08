@@ -31,7 +31,7 @@ const IndexPage = props => {
   setSelectedDay(selectedDay);
 
   return (
-    <div className="wrapper">
+    <React.Fragment>
       <Header />
       <section className="content">
         <h1 className="heading">{headingText}</h1>
@@ -41,7 +41,7 @@ const IndexPage = props => {
         </div>
       </section>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 };
 
