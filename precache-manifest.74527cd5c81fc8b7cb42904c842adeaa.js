@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fd10d519d6fa7108a38a7c1a90ad8706",
+    "revision": "12b16cf3771afc7cbed7e51ba1b40295",
     "url": "/react-nba/index.html"
   },
   {
-    "revision": "116fa936a325b51b6df2",
+    "revision": "d2c331bd97dd895a4ffc",
     "url": "/react-nba/static/css/2.c6231af7.chunk.css"
   },
   {
-    "revision": "3f6813fe978981b4b270",
-    "url": "/react-nba/static/css/main.abd28e0f.chunk.css"
+    "revision": "a0b2984dfa4e899615df",
+    "url": "/react-nba/static/css/main.acd513e1.chunk.css"
   },
   {
-    "revision": "116fa936a325b51b6df2",
-    "url": "/react-nba/static/js/2.f94e4556.chunk.js"
+    "revision": "d2c331bd97dd895a4ffc",
+    "url": "/react-nba/static/js/2.e8bd9d29.chunk.js"
   },
   {
-    "revision": "3f6813fe978981b4b270",
-    "url": "/react-nba/static/js/main.85417db0.chunk.js"
+    "revision": "a0b2984dfa4e899615df",
+    "url": "/react-nba/static/js/main.eb4e4154.chunk.js"
   },
   {
     "revision": "ce86678f82a3c9d212ba",
