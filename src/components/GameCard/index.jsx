@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import convertDate from "../../utils/gameCardDateConverter";
 import { Link, HashRouter as Router } from "react-router-dom";
 import "./styles.css";
 
 const GameCard = props => {
+  const [visitorLogoSrc, setVisitorLogoSrc] = useState(null);
+  const [homeLogoSrc, setHomeLogoSrc] = useState(null);
+
+  useEffect(() => {
+    try {
+      setVisitorLogoSrc(require(`../../assets/teamIcons/${props.data.visitor_team.abbreviation}.svg`));
+    } catch (e) {
+      console.error(e.message);
+    }
+
+    try {
+      setHomeLogoSrc(require(`../../assets/teamIcons/${props.data.home_team.abbreviation}.svg`));
+    } catch (e) {
+      console.error(e.message);
+    }
+  }, [props]);
+
   return (
     <article className="game-card">
       <p className="game-card__starts-time">
@@ -27,11 +44,15 @@ const GameCard = props => {
             </Link>
           </Router>
 
-          <img
-            className="game-card__team-logo"
-            src={require(`../../assets/teamIcons/${props.data.visitor_team.abbreviation}.svg`)}
-            alt={`${props.data.visitor_team.full_name} logo`}
-          />
+          {
+            visitorLogoSrc ? (
+              <img
+                className="game-card__team-logo"
+                src={visitorLogoSrc}
+                alt={`${props.data.visitor_team.full_name} logo`}
+              />
+            ) : null
+          }
         </div>
 
         <div className="game-card__scores">
@@ -51,11 +72,15 @@ const GameCard = props => {
             </Link>
           </Router>
 
-          <img
-            className="game-card__team-logo"
-            src={require(`../../assets/teamIcons/${props.data.home_team.abbreviation}.svg`)}
-            alt={`${props.data.home_team.full_name} logo`}
-          />
+          {
+            homeLogoSrc ? (
+              <img
+                className="game-card__team-logo"
+                src={homeLogoSrc}
+                alt={`${props.data.home_team.full_name} logo`}
+              />
+            ) : null
+          }
         </div>
       </div>
     </article>
@@ -74,7 +99,7 @@ GameCard.propTypes = {
     postseason: PropTypes.bool.isRequired,
     season: PropTypes.number.isRequired,
     status: PropTypes.string.isRequired,
-    time: PropTypes.string.isRequired,
+    time: PropTypes.string,
     visitor_team: PropTypes.object.isRequired,
     visitor_team_score: PropTypes.number.isRequired
   })

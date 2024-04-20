@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./styles.css";
 
 const TeamCard = props => {
+  const [src, setSrc] = useState(null);
+
+  useEffect(() => {
+    try {
+      const src = require(`../../assets/teamIcons/${props.data.abbreviation}.svg`);
+
+      setSrc(src);
+    } catch (e) {
+      console.error(e.message);
+    }
+  }, [props]);
+
   return (
     <article className="team-card">
-      <img
-        className="team-card__logo"
-        src={require(`../../assets/teamIcons/${props.data.abbreviation}.svg`)}
-        alt={`${props.data.full_name} logo`}
-      />
+      {
+        src ? (<img
+          className="team-card__logo"
+          src={src}
+          alt={`${props.data.full_name} logo`}
+        />) : null
+      }
 
       <ul className="team-card__info-list">
         <li className="team-card__info-list-elem">
