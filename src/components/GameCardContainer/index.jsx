@@ -5,13 +5,13 @@ import GameCard from "../GameCard";
 import currentDate from "../../utils/currentDate";
 import currentYearMonthDays from "../../utils/currentYearMonthDays";
 import "./styles.css";
+import { API_AUTH_KEY, API_URL } from '../../constants';
 
 const GameCardContainer = props => {
   let [gameCards, fetchgameCards] = useState([]);
   let [contentLoaded, contentLoadedUpdate] = useState(false);
   const [fetchError, fetchErrorHandle] = useState(false);
   useEffect(() => {
-    const API_URL = "https://www.balldontlie.io/api/v1";
     let currentUrl = "";
 
     if (props.teamId) {
@@ -25,7 +25,7 @@ const GameCardContainer = props => {
     }
 
     axios
-      .get(currentUrl)
+      .get(currentUrl, { headers: { Authorization: API_AUTH_KEY } })
       .then(el => {
         el["data"]["data"].sort((a, b) => {
           return new Date(a["date"]) - new Date(b["date"]);

@@ -5,12 +5,12 @@ import TeamCard from "../TeamCard";
 import { connect } from "react-redux";
 import { addTeamData } from "../../store/team/actions";
 import "./styles.css";
+import { API_AUTH_KEY, API_URL } from '../../constants';
 
 const TeamCardContainer = props => {
   let [teamCard, fetchTeamCard] = useState([]);
   const [fetchError, fetchErrorHandle] = useState(false);
 
-  const API_URL = "https://www.balldontlie.io/api/v1";
   let currentUrl = "";
 
   if (props.allTeams) {
@@ -21,7 +21,7 @@ const TeamCardContainer = props => {
 
   useEffect(() => {
     axios
-      .get(currentUrl)
+      .get(currentUrl, { headers: { Authorization: API_AUTH_KEY } })
       .then(el => {
         if (props.allTeams) {
           fetchTeamCard(el["data"]["data"]);
@@ -42,7 +42,7 @@ const TeamCardContainer = props => {
         containerClassName = "all-team-content";
         return <TeamCard key={el.id} data={el} />;
       }
-      return <TeamCard key={el.id} data={el} />;
+      return <TeamCard key={el.data.id} data={el.data} />;
     });
     if (props.allTeams) {
       return <div className={containerClassName}>{teamCard}</div>;

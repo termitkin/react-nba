@@ -1,7 +1,8 @@
 const currentYearMonthDays = () => {
   const d = new Date();
   const year = d.getFullYear();
-  const month = d.getMonth() + 1;
+  let month = d.getMonth() + 1;
+  month = month < 10 ? `0${month}` : month;
 
   const daysInMonth = (year, month) => new Date(year, month, 0).getDate();
 
